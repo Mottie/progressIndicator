@@ -1,0 +1,41 @@
+body {
+ background: #ddd;
+ color: #000;
+}
+.progress {
+ background: #777;
+ color: #fff;
+ float: left;
+ position: relative;
+ top: 0;
+ left: 0;
+ width: 200px;
+ height: 200px;
+ overflow: hidden;
+ margin: 0 10px;
+ text-align: center;
+ border-radius: 20px;
+ -moz-border-radius: 20px;
+ -webkit-border-radius: 20px;
+}
+.progress span {
+ position: absolute;
+ left: -50px;
+ top: 0;
+ padding: 0;
+ margin: 0;
+ border: 0;
+}
+.display {
+ position: absolute;
+ top: 95px;
+ left: 90px;
+}
+.controls {
+ margin: 5px 0 5px 30px;
+ font-size: 10px;
+}
+#slider {
+ width: 190px;
+ margin-left: 140px;
+}

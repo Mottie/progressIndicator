@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Progress Indicator Plugin Demo</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css" />
+
+<link type="text/css" rel="stylesheet" href="css/progress-indicator-demo.css" />
+<script type="text/javascript" src="js/jquery.progressindicator.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ // initialize indicators
+ $('#progress0').progressIndicator(0, { timerActive: true, showValue: false, timerSpeed: 50, timerIncrement: 5 });
+ $('#progress1').progressIndicator(0);
+ $('#progress2').progressIndicator(0, { sizeStart: 5, sizeDec: -1, max: 200, startPosition: .32, clockwise: false });
+ $('#progress3').progressIndicator(0, { sizeStart: 30, sizeDec: 0, showValue: false });
+
+ // setup demo slider
+ $('#slider').slider({
+  slide: function(e,ui){
+   $('#progress1').data('progressIndicator').update( ui.value );
+   $('#progress2').data('progressIndicator').update( ui.value * 2 ); // doubled because progress2 max is 200
+   $('#progress3').data('progressIndicator').update( ui.value );
+  }
+ });
+
+ // set up timer buttons
+ $('button').button();
+ $('button:contains(Start)').click(function(){
+  $('#progress0').data('progressIndicator').start();
+ });
+ $('button:contains(Stop)').click(function(){
+  $('#progress0').data('progressIndicator').stop();
+ })
+ $('button:contains(Reset)').click(function(){
+  $('#progress0').data('progressIndicator').reset();
+ })
+ // var value = $('#progress2').data('progressIndicator').getValue(); // returns current value setting
+
+})
+</script>
+
+</head>
+<body>
+
+<div class="controls">
+ <button>Start</button>
+ <button>Stop</button>
+ <button>Reset</button>
+</div>
+
+<div id="progress0" class="progress">
+ Using bullets & timer
+ <div class="display"></div>
+ <span style="color:#08f">&bull;</span>
+ <span style="color:#08e">&bull;</span>
+ <span style="color:#08d">&bull;</span>
+ <span style="color:#08c">&bull;</span>
+ <span style="color:#08b">&bull;</span>
+ <span style="color:#08a">&bull;</span>
+ <span style="color:#079">&bull;</span>
+ <span style="color:#068">&bull;</span>
+ <span style="color:#067">&bull;</span>
+ <span style="color:#066">&bull;</span>
+ <span style="color:#055">&bull;</span>
+ <span style="color:#054">&bull;</span>
+ <span style="color:#053">&bull;</span>
+ <span style="color:#052">&bull;</span>
+</div>
+
+<div id="progress1" class="progress">
+ Using bullets
+ <div class="display"></div>
+ <span style="color:#08f">&bull;</span>
+ <span style="color:#08e">&bull;</span>
+ <span style="color:#08d">&bull;</span>
+ <span style="color:#08c">&bull;</span>
+ <span style="color:#08b">&bull;</span>
+ <span style="color:#08a">&bull;</span>
+ <span style="color:#079">&bull;</span>
+ <span style="color:#068">&bull;</span>
+ <span style="color:#067">&bull;</span>
+ <span style="color:#066">&bull;</span>
+ <span style="color:#055">&bull;</span>
+ <span style="color:#054">&bull;</span>
+ <span style="color:#053">&bull;</span>
+ <span style="color:#052">&bull;</span>
+</div>
+
+<br style="clear: both;">
+<br>
+
+<div id="progress2" class="progress">
+ Using images (gif)
+ <div class="display"></div>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+</div>
+
+<div id="progress3" class="progress">
+ Using image & text
+ <div class="display"></div>
+ <span><img src="images/image1.png" /></span>
+ <span>a</span>
+ <span><img src="images/image2.png" /></span>
+ <span>b</span>
+ <span><img src="images/image3.png" /></span>
+ <span>c</span>
+ <span><img src="images/image4.png" /></span>
+ <span>d</span>
+</div>
+
+<br style="clear: both;">
+<br>
+
+<div id="slider"></div>
+
+</body>
+</html>
