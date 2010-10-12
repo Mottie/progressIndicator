@@ -1,0 +1,218 @@
+<<<<<<< HEAD
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Mottie/progressIndicator @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #000000;
+		  font-family: "Helvetica,Arial,FreeSans";
+  		color: #ffffff;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #ffffff; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #ffffff; }
+    h3 { text-align: center; color: #ffffff; }
+    a { color: #ffffff; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/Mottie/progressIndicator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/Mottie/progressIndicator/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/Mottie/progressIndicator/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+
+    <h1><a href="http://github.com/Mottie/progressIndicator">progressIndicator</a>
+      <span class="small">by <a href="http://github.com/Mottie">Mottie</a></span></h1>
+
+    <div class="description">
+      A jQuery plugin that allows manual control of a progress or loading indicator
+    </div>
+
+    <h2>Authors</h2>
+<p>Rob Garrison (wowmotty@gmail.com)<br/>      </p>
+<h2>Contact</h2>
+<p>Rob Garrison (wowmotty@gmail.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/Mottie/progressIndicator/zipball/master">zip</a> or
+      <a href="http://github.com/Mottie/progressIndicator/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/Mottie/progressIndicator</pre>
+    </p>
+
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/Mottie/progressIndicator">Mottie/progressIndicator</a>
+    </div>
+
+  </div>
+
+  
+</body>
+</html>
+=======
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="en" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Progress Indicator Plugin Demo</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css" />
+
+<link type="text/css" rel="stylesheet" href="css/progress-indicator-demo.css" />
+<script type="text/javascript" src="js/jquery.progressindicator.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+ // initialize indicators
+ $('#progress0').progressIndicator(0, { timerActive: true, showValue: false, timerSpeed: 50, timerIncrement: 5 });
+ $('#progress1').progressIndicator(0);
+ $('#progress2').progressIndicator(0, { sizeStart: 5, sizeDec: -1, max: 200, startPosition: .32, clockwise: false });
+ $('#progress3').progressIndicator(0, { sizeStart: 30, sizeDec: 0, showValue: false });
+
+ // setup demo slider
+ $('#slider').slider({
+  slide: function(e,ui){
+   $('#progress1').data('progressIndicator').update( ui.value );
+   $('#progress2').data('progressIndicator').update( ui.value * 2 ); // doubled because progress2 max is 200
+   $('#progress3').data('progressIndicator').update( ui.value );
+  }
+ });
+
+ // set up timer buttons
+ $('button').button();
+ $('button:contains(Start)').click(function(){
+  $('#progress0').data('progressIndicator').start();
+ });
+ $('button:contains(Stop)').click(function(){
+  $('#progress0').data('progressIndicator').stop();
+ })
+ $('button:contains(Reset)').click(function(){
+  $('#progress0').data('progressIndicator').reset();
+ })
+ // var value = $('#progress2').data('progressIndicator').getValue(); // returns current value setting
+
+})
+</script>
+
+</head>
+<body>
+
+<div class="controls">
+ <button>Start</button>
+ <button>Stop</button>
+ <button>Reset</button>
+</div>
+
+<div id="progress0" class="progress">
+ Using bullets & timer
+ <div class="display"></div>
+ <span style="color:#08f">&bull;</span>
+ <span style="color:#08e">&bull;</span>
+ <span style="color:#08d">&bull;</span>
+ <span style="color:#08c">&bull;</span>
+ <span style="color:#08b">&bull;</span>
+ <span style="color:#08a">&bull;</span>
+ <span style="color:#079">&bull;</span>
+ <span style="color:#068">&bull;</span>
+ <span style="color:#067">&bull;</span>
+ <span style="color:#066">&bull;</span>
+ <span style="color:#055">&bull;</span>
+ <span style="color:#054">&bull;</span>
+ <span style="color:#053">&bull;</span>
+ <span style="color:#052">&bull;</span>
+</div>
+
+<div id="progress1" class="progress">
+ Using bullets
+ <div class="display"></div>
+ <span style="color:#08f">&bull;</span>
+ <span style="color:#08e">&bull;</span>
+ <span style="color:#08d">&bull;</span>
+ <span style="color:#08c">&bull;</span>
+ <span style="color:#08b">&bull;</span>
+ <span style="color:#08a">&bull;</span>
+ <span style="color:#079">&bull;</span>
+ <span style="color:#068">&bull;</span>
+ <span style="color:#067">&bull;</span>
+ <span style="color:#066">&bull;</span>
+ <span style="color:#055">&bull;</span>
+ <span style="color:#054">&bull;</span>
+ <span style="color:#053">&bull;</span>
+ <span style="color:#052">&bull;</span>
+</div>
+
+<br style="clear: both;">
+<br>
+
+<div id="progress2" class="progress">
+ Using images (gif)
+ <div class="display"></div>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+ <span><img src="images/circle.gif" /></span>
+</div>
+
+<div id="progress3" class="progress">
+ Using image & text
+ <div class="display"></div>
+ <span><img src="images/image1.png" /></span>
+ <span>a</span>
+ <span><img src="images/image2.png" /></span>
+ <span>b</span>
+ <span><img src="images/image3.png" /></span>
+ <span>c</span>
+ <span><img src="images/image4.png" /></span>
+ <span>d</span>
+</div>
+
+<br style="clear: both;">
+<br>
+
+<div id="slider"></div>
+
+</body>
+</html>
+>>>>>>> 1e158a719d40c98527931ef25c0ca7daf96f3ef5
