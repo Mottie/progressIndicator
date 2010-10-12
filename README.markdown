@@ -46,4 +46,4 @@ For more details, see [my blog][1] entry and view [the demo][2] source.
 
 
   [1]: http://wowmotty.blogspot.com/2010/06/dynamic-progress-indicator.html
-  [2]: http://www.myotherdrive.com/dyn/file/000.342823.19062010.10889.6a64fi/progress-indicator-demo-live.htm
+  [2]: http://mottie.github.com/progressIndicator/index.html
